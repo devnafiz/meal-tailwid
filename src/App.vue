@@ -3,7 +3,7 @@
 </script>
 
 <template>
- app.vue
+<router-view></router-view>
 </template>
 
 <style scoped>
