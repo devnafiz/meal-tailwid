@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import store from '../store';
+import axiosClient from '../axiosClient.js';
 
 
 
 const letters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+onMounted( async()=>{
+ const response= axiosClient.get('list.php?i=list');
+  console.log(response.data);
+ 
+})
 </script>
 
 <template>
