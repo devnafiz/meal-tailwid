@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
-import { computed, onMounted } from 'vue';
+import { computed, onMounted,ref } from 'vue';
 import store from '../store';
 import axiosClient from '../axiosClient.js';
 
 
 
 const letters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const ingradients =ref([])
+
 onMounted( async()=>{
- const response= axiosClient.get('list.php?i=list');
+ const response = await axiosClient.get('list.php?i=list')
+ ingradients.value = response.data
   console.log(response.data);
  
 })
 </script>
 
 <template>
-  <div class="flex flex-col items-center ">
+  <div class="flex flex-col items-center  w-auto">
 
      <input class="rounded border-2  border-gray-200 w-full justify-center" placeholder="Search for meals" type="text"/> 
 
@@ -25,6 +28,11 @@ onMounted( async()=>{
 
        </router-link>
 
+     </div>
+     <div class="flex w-100">
+     <pre>
+     
+     </pre>
      </div>
     
 
