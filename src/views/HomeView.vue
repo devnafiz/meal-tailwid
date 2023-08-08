@@ -18,7 +18,7 @@ onMounted( async()=>{
 </script>
 
 <template>
-  <div class="flex flex-col items-center  w-auto">
+  <div class="flex flex-col items-center  w-full">
 
      <input class="rounded border-2  border-gray-200 w-full justify-center" placeholder="Search for meals" type="text"/> 
 
