@@ -8,10 +8,11 @@
 <script setup>
 
 import { ref} from 'vue'
+import axiosClient from '../axiosClient'
 
 const keyword= ref('');
 
 function searchMeals() {
-  
+  axiosClient.get(`search.php?s=${keyword.value}`)
 }
 </script>
