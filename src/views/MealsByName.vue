@@ -6,12 +6,12 @@
   <div class=" grid grid-cols-1 md:grid-cols-3 gap-3">
    <div v-for="meal in meals" :key="meal.idMeal"  class=" bg-white shadow rounded-xl ">
      <img :src="meal.strMealThumb" :alt="strMeal" class=" rounded-t-2xl w-full object-cover h-48">
-     <div class="p-3">
+     <div class="p-3  ">
       <h3 class="px-2  font-semibold">{{ meal.strMeal }}</h3>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-     <div class="px-2 py-3">
-      <a :href="meal.strYoutube" :traget="_blank" class="px-2 py-3 rounded border-2 border-red-600 hover:bg-red-600 hover:text-white transition-colors"> youtube</a>
-      <router-link to="/"> view</router-link>
+     <div class="px-2 py-3 flex item-center justify-between">
+      <a :href="meal.strYoutube" :traget="_blank" class="px-2 py-3 rounded border-2 text-white border-red-600 bg-red-600 hover:bg-red-600 hover:text-white transition-colors"> youtube</a>
+      <router-link to="/" class="px-2 py-3 rounded border-2 border-purple-600 hover:bg-purple-600 hover:text-white transition-colors"> view</router-link>
      </div>
 
      </div>
@@ -25,13 +25,23 @@
 
 <script setup>
 
-import { ref,computed} from 'vue'
+import { ref,computed,onMounted} from 'vue'
 
 import store from '../store'
+import { useRoute} from 'vue-router'
 const keyword= ref('');
+const route = useRoute();
 const meals =computed(()=> store.state.searchedMeals);
 
 function searchMeals() {
  store.dispatch('searchMeals',keyword.value)
 }
+
+onMounted(()=>{
+
+ keyword.value =route.params.name
+ if(keyword.value){
+  searchMeals();
+ }
+})
 </script>
