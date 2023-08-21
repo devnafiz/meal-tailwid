@@ -4,7 +4,15 @@
   </div>
 
   <div>
-   <pre>{{ meals }}</pre>
+   <div v-for="meal in meals" :key="meal.idMeal">
+     <img :src="meal.strMealThumb" :alt="strMeal">
+     <h3>{{ meal.strMeal }}</h3>
+     <div>
+      <a :href="meal.strYoutube" :traget="_blank"> youtube</a>
+      <router-link to="/"> view</router-link>
+     </div>
+
+   </div>
   
   </div>
 
@@ -13,7 +21,7 @@
 <script setup>
 
 import { ref,computed} from 'vue'
-import axiosClient from '../axiosClient'
+
 import store from '../store'
 const keyword= ref('');
 const meals =computed(()=> store.state.searchedMeals);
