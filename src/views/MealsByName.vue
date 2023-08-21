@@ -3,14 +3,19 @@
     <input v-model="keyword" @change="searchMeals" class="rounded border-2  border-gray-200 w-full justify-center" placeholder="Search for meals" type="text"/> 
   </div>
 
-  <div>
-   <div v-for="meal in meals" :key="meal.idMeal">
-     <img :src="meal.strMealThumb" :alt="strMeal">
-     <h3>{{ meal.strMeal }}</h3>
-     <div>
-      <a :href="meal.strYoutube" :traget="_blank"> youtube</a>
+  <div class=" grid grid-cols-1 md:grid-cols-3 gap-3">
+   <div v-for="meal in meals" :key="meal.idMeal"  class=" bg-white shadow rounded-xl ">
+     <img :src="meal.strMealThumb" :alt="strMeal" class=" rounded-t-2xl w-full object-cover h-48">
+     <div class="p-3">
+      <h3 class="px-2  font-semibold">{{ meal.strMeal }}</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+     <div class="px-2 py-3">
+      <a :href="meal.strYoutube" :traget="_blank" class="px-2 py-3 rounded border-2 border-red-600 hover:bg-red-600 hover:text-white transition-colors"> youtube</a>
       <router-link to="/"> view</router-link>
      </div>
+
+     </div>
+     
 
    </div>
   
