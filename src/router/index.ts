@@ -6,6 +6,7 @@ import HomeView from '../views/HomeView.vue'
 import MealsByName from '../views/MealsByName.vue'
 import MealsByLetter from '../views/MealsByLetter.vue'
 import MealsByIngredient from '../views/MealsByIngredients.vue'
+import MealDetails from '../views/MealDetails.vue'
 
 
 const router = createRouter({
@@ -37,6 +38,12 @@ const router = createRouter({
           path: "/by-ingredient/:ingredient?",
           name: "byIngredient",
           component: MealsByIngredient,
+        },
+        { 
+          path:"/meal/:id",
+          name:"mealDetails",
+          component: MealDetails
+            
         },
         
         {

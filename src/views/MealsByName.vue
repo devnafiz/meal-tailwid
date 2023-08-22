@@ -5,7 +5,10 @@
 
   <div class=" grid grid-cols-1 md:grid-cols-3 gap-3">
    <div v-for="meal in meals" :key="meal.idMeal"  class=" bg-white shadow rounded-xl ">
-     <img :src="meal.strMealThumb" :alt="strMeal" class=" rounded-t-2xl w-full object-cover h-48">
+    <router-link :to="{name:'mealDetails',params:{id: meal.idMeal}}">
+      <img :src="meal.strMealThumb" :alt="strMeal" class=" rounded-t-2xl w-full object-cover h-48">
+    </router-link>
+     
      <div class="p-3  ">
       <h3 class="px-2  font-semibold">{{ meal.strMeal }}</h3>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
