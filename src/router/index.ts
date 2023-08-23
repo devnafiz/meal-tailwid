@@ -40,8 +40,8 @@ const router = createRouter({
           component: MealsByIngredient,
         },
         { 
-          path:"/meal/:id",
-          name:"mealDetails",
+          path:'/meal/:id',
+          name:'mealDetails',
           component: MealDetails
             
         },
