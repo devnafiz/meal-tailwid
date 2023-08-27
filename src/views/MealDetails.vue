@@ -1,7 +1,7 @@
 <template>
- <div class="w-[800px] mx-auto ">
-    {{ meal }}
-    <h2 class=" text-5x1 mb-5">{{ meal.strMeal }}</h2>
+ <div class="max-w-[800px] mx-auto ">
+   
+    <h2 class=" mb-5 font-semibold mt-3 text-xl">{{ meal.strMeal }}</h2>
     <img :src="meal.strMealThumb" :alt="meal.strMeal"/>
     <div class=" grid grid-cols-1 md:grid-cols-3 text-lg py-2">
         <div>
@@ -14,6 +14,9 @@
             Tags:{{ meal.strTags }}
         </div>
        
+    </div>
+    <div class="my-3 px-3">
+        {{ meal.strInstructions }}
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2">
         <div >
@@ -36,7 +39,12 @@
             </ul>
         </div>
         <div class="mt-4 mb-4">
-            <YouTubeButton :href="meal.strYoutube"> Go to Youtube</YouTubeButton>
+                <YouTubeButton :href="meal.strYoutube"> Go to Youtube</YouTubeButton>
+                    <a :href="meal.strSource" 
+                    :traget="_blank" 
+                    class="px-2 py-3 rounded border-2 text-white border-green-600 bg-green-600 hover:bg-green-600 hover:text-white transition-colors ml-2"> 
+            View Original Source</a>
+
         </div>
 
     </div>
