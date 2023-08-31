@@ -7,7 +7,7 @@ import MealsByName from '../views/MealsByName.vue'
 import MealsByLetter from '../views/MealsByLetter.vue'
 import MealsByIngredient from '../views/MealsByIngredients.vue'
 import MealDetails from '../views/MealDetails.vue'
-
+import Ingredients from '../views/Ingredients.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +38,11 @@ const router = createRouter({
           path: "/by-ingredient/:ingredient?",
           name: "byIngredient",
           component: MealsByIngredient,
+        },
+        {
+          path: "ingredients",
+          name: "ingredients",
+          component: Ingredients,
         },
         { 
           path:'/meal/:id',
