@@ -1,35 +1,35 @@
 <template>
-  <div>
-    
+ <div>
     <div class=" grid grid-cols-1 md:grid-cols-3 gap-3">
-      <router-link :to="{ name:byIngredient,params:{ingredient:ingredient.idIngredient}}"
-       v-for="ingredient of ingredients" :key="ingredient.id" class=" bg-white rounded p-3">
-        <h2 class=" text-2xl font-semibold pt-2">{{ ingredient.strIngredient }}</h2>
-        <p>{{ ingredient.strDescription }}</p>
-      
-
-      </router-link>
+    <MealItem   v-for="meal in meals"  :key="meal.idMeal" :meal="meal"/>
 
   
   </div>
+  </div>
+  <div v-if="!meals.length" class="flex justify-center bg-gray-100">
+
+    <h3> no meal here</h3>
+
   </div>
 
 </template>
 
 <script setup>
-
+import {computed} from '@vue/reactivity'
 import { onMounted, ref } from 'vue'
-import axiosClient from '../axiosClient.js'
+
+import {useRoute} from 'vue-router'
+import store from '../store'
+import MealItem from '../components/MealItem.vue'
 
 
-const ingredients= ref([])
+const route =useRoute() ;
+
+const meals =computed(()=>store.state.mealsByIngredient)
 
 onMounted(()=>{
-
-  axiosClient.get('list.php?i=list')
-  .then(({data})=>{
-      
-    ingredients.value=data.meals;
-  })
+	
+	store.dispatch('searchMealsByIngredient',route.params.ingredient)
 })
+
 </script>

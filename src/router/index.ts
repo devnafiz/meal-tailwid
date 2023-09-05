@@ -35,12 +35,12 @@ const router = createRouter({
           component: MealsByLetter,
         },
         {
-          path: "/by-ingredient/:ingredient?",
+          path: "/by-ingredient/:ingredient",
           name: "byIngredient",
           component: MealsByIngredient,
         },
         {
-          path: "ingredients",
+          path: "/ingredients",
           name: "ingredients",
           component: Ingredients,
         },
