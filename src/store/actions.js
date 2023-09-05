@@ -25,10 +25,11 @@ export function searchMealsByLetter({commit},letter){
 }
 
 export function searchMealsByIngredient({commit},ing){
+    //debugger;
 
     axiosClient.get(`filter.php?i=${ing}`)
 
-    .then(({data})=>{
+    .then(({ data })=>{
 
         
 
